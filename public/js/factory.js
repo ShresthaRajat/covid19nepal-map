@@ -160,7 +160,9 @@ const concertrationColors = {
     six: '#f14b32',
     eight: '#e4432f',
     ten: '#be3626',
-    green: '#2ECC71'
+    green: '#2ECC71',
+    grey: '#B2BABB'
+
 }
 
 
@@ -168,15 +170,17 @@ const concertrationColors = {
 const getConcColor = (data, displayType, regionName, maxVal) => {
     // let fillColor = 'white';
 
-    const fillColor = (qVal, rVal) => {
+    const fillColor = (qVal, rVal, dVal) => {
         console.log(qVal, regionName)
         if (qVal === 0) return concertrationColors.zero;
         if (qVal === rVal) return concertrationColors.green;
-        if (qVal > 0 && qVal <= 20) return concertrationColors.two;
-        if (qVal > 20 && qVal <= 40) return concertrationColors.four;
-        if (qVal > 40 && qVal <= 60) return concertrationColors.six;
-        if (qVal > 60 && qVal <= 80) return concertrationColors.eight;
-        if (qVal > 80 && qVal <= 100) return concertrationColors.ten;
+        if (qVal === dVal) return concertrationColors.grey;
+        // if (dVal > 0) return concertrationColors.grey;
+        // if (qVal > 0 && qVal <= 20) return concertrationColors.two;
+        // if (qVal > 20 && qVal <= 40) return concertrationColors.four;
+        // if (qVal > 40 && qVal <= 60) return concertrationColors.six;
+        // if (qVal > 60 && qVal <= 80) return concertrationColors.eight;
+        // if (qVal > 80 && qVal <= 100) return concertrationColors.ten;
 
         return concertrationColors.zero;
     }
@@ -189,8 +193,9 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
         const district = distData.find(el => el.district === regionName)
         const q = district.cases / maxVal * 100;
         const r = district.recovered / maxVal * 100;
+        const d = district.deaths / maxVal * 100;
         $(`.${regionName}-label`)[0].style.fill = 'black';
-        return fillColor(q, r)
+        return fillColor(q, r, d)
 
     } else {
         //if shown  province wise
@@ -203,7 +208,8 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
         }
         const p = province.cases / maxVal * 100;
         const r = province.recovered / maxVal * 100;
-        return fillColor(p, r)
+        const d = province.deaths / maxVal * 100;
+        return fillColor(p, r, d)
     }
 }
 
