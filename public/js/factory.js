@@ -167,12 +167,14 @@ const concertrationColors = {
     h:"#A04000",
     i:"#873600",
     j:"#6E2C00",
+    grey: '#D2B4DE '
 }
 
 
 
 const getConcColor = (data, displayType, regionName, maxVal) => {
     // let fillColor = 'white';
+
 
 const fillColor = (qVal, rVal, dVal) => {
         if (qVal === 0) return concertrationColors.zero;
