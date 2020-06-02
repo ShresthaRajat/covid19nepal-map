@@ -155,7 +155,8 @@ const getMaxValue = (data, displayType) => {
 
 const concertrationColors = {
     zero: '#fff',
-    green: '#ABEBC6',
+    green: '#8BFBC6',
+    grey: '#E5D139',
     a:"#FBEEE6",
     b:"#F6DDCC",
     c:"#EDBB99",
@@ -174,11 +175,10 @@ const concertrationColors = {
 const getConcColor = (data, displayType, regionName, maxVal) => {
     // let fillColor = 'white';
 
-    const fillColor = (q, r, d) => {
-        qVal = q
-        dVal = d
+
+const fillColor = (qVal, rVal, dVal) => {
         if (qVal === 0) return concertrationColors.zero;
-        if (qVal === r) return concertrationColors.green;
+        if (qVal === rVal) return concertrationColors.green;
         if (qVal === dVal) return concertrationColors.grey;
         if (qVal > 0 && qVal <= 1) return concertrationColors.a;
         if (qVal > 1 && qVal <= 2) return concertrationColors.b;
