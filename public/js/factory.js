@@ -161,7 +161,7 @@ const concertrationColors = {
     eight: '#e4432f',
     ten: '#be3626',
     green: '#2ECC71',
-    grey: '#B2BABB'
+    grey: '#982277'
 
 }
 
@@ -172,10 +172,10 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
 
     const fillColor = (qVal, rVal, dVal) => {
         console.log(qVal, regionName)
-        if (qVal === 0) return concertrationColors.zero;
-        if (qVal === rVal) return concertrationColors.green;
-        if (qVal === dVal) return concertrationColors.grey;
-        // if (dVal > 0) return concertrationColors.grey;
+        // if (qVal === 0) return concertrationColors.zero;
+        // if (qVal === rVal) return concertrationColors.green;
+        // if (qVal === dVal) return concertrationColors.grey;
+        if (dVal > 0) return concertrationColors.grey;
         // if (qVal > 0 && qVal <= 20) return concertrationColors.two;
         // if (qVal > 20 && qVal <= 40) return concertrationColors.four;
         // if (qVal > 40 && qVal <= 60) return concertrationColors.six;
