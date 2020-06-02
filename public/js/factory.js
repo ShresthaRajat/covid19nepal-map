@@ -156,6 +156,7 @@ const getMaxValue = (data, displayType) => {
 const concertrationColors = {
     zero: '#fff',
     green: '#ABEBC6',
+    grey: '#982277',
     a:"#FBEEE6",
     b:"#F6DDCC",
     c:"#EDBB99",
@@ -173,10 +174,10 @@ const concertrationColors = {
 const getConcColor = (data, displayType, regionName, maxVal) => {
     // let fillColor = 'white';
 
-    const fillColor = (q, r) => {
-        qVal = q
+const fillColor = (qVal, rVal, dVal) => {
         if (qVal === 0) return concertrationColors.zero;
-        if (qVal === r) return concertrationColors.green;
+        if (qVal === rVal) return concertrationColors.green;
+        if (qVal === dVal) return concertrationColors.grey;
         if (qVal > 0 && qVal <= 1) return concertrationColors.a;
         if (qVal > 1 && qVal <= 2) return concertrationColors.b;
         if (qVal > 2 && qVal <= 4) return concertrationColors.c;
@@ -198,8 +199,9 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
         const district = distData.find(el => el.district === regionName)
         const q = district.cases / maxVal * 100;
         const r = district.recovered / maxVal * 100;
+        const d = district.deaths / maxVal * 100;
         $(`.${regionName}-label`)[0].style.fill = 'black';
-        return fillColor(q, r)
+        return fillColor(q, r, d)
 
     } else {
         //if shown  province wise
@@ -212,7 +214,8 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
         }
         const p = province.cases / maxVal * 100;
         const r = province.recovered / maxVal * 100;
-        return fillColor(p, r)
+        const d = province.deaths / maxVal * 100;
+        return fillColor(p, r, d)
     }
 }
 
