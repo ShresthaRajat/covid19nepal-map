@@ -155,8 +155,8 @@ const getMaxValue = (data, displayType) => {
 
 const concertrationColors = {
     zero: '#fff',
-    green: '#ABEBC6',
-    grey: '#982277',
+    green: '#8BFBC6',
+    grey: '#E5D139',
     a:"#FBEEE6",
     b:"#F6DDCC",
     c:"#EDBB99",
