@@ -159,7 +159,8 @@ const concertrationColors = {
     four: '#f68c3b',
     six: '#f14b32',
     eight: '#e4432f',
-    ten: '#be3626'
+    ten: '#be3626',
+    green: '#2ECC71'
 }
 
 
@@ -167,9 +168,10 @@ const concertrationColors = {
 const getConcColor = (data, displayType, regionName, maxVal) => {
     // let fillColor = 'white';
 
-    const fillColor = (qVal) => {
+    const fillColor = (qVal, rVal) => {
         console.log(qVal, regionName)
         if (qVal === 0) return concertrationColors.zero;
+        if (qVal === rVal) return concertrationColors.green;
         if (qVal > 0 && qVal <= 20) return concertrationColors.two;
         if (qVal > 20 && qVal <= 40) return concertrationColors.four;
         if (qVal > 40 && qVal <= 60) return concertrationColors.six;
@@ -186,8 +188,9 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
         const distData = data.byDistrict;
         const district = distData.find(el => el.district === regionName)
         const q = district.cases / maxVal * 100;
+        const r = district.recovered / maxVal * 100;
         $(`.${regionName}-label`)[0].style.fill = 'black';
-        return fillColor(q)
+        return fillColor(q, r)
 
     } else {
         //if shown  province wise
@@ -199,7 +202,8 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
             }
         }
         const p = province.cases / maxVal * 100;
-        return fillColor(p)
+        const r = province.recovered / maxVal * 100;
+        return fillColor(p, r)
     }
 }
 
