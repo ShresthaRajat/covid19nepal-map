@@ -180,16 +180,16 @@ const fillColor = (qVal, rVal, dVal) => {
         if (qVal === 0) return concertrationColors.zero;
         if (qVal === rVal+dVal) return concertrationColors.green;
         if (qVal === dVal) return concertrationColors.grey;
-        if (qVal > 0 && qVal <= 1) return concertrationColors.a;
-        if (qVal > 1 && qVal <= 2) return concertrationColors.b;
-        if (qVal > 2 && qVal <= 4) return concertrationColors.c;
-        if (qVal > 4 && qVal <= 8) return concertrationColors.d;
-        if (qVal > 8 && qVal <= 16) return concertrationColors.e;
-        if (qVal > 16 && qVal <= 32) return concertrationColors.f;
-        if (qVal > 32 && qVal <= 64) return concertrationColors.g;
-        if (qVal > 64 && qVal <= 128) return concertrationColors.h;
-        if (qVal > 128 && qVal <= 256) return concertrationColors.i;
-        if (qVal > 256 && qVal <= 512) return concertrationColors.j;
+        if (qVal > 0 && qVal <= 64) return concertrationColors.a;
+        if (qVal > 64 && qVal <= 128) return concertrationColors.b;
+        if (qVal > 128 && qVal <= 256) return concertrationColors.c;
+        if (qVal > 256 && qVal <= 512) return concertrationColors.d;
+        if (qVal > 512 && qVal <= 1024) return concertrationColors.e;
+        if (qVal > 1024 && qVal <= 2048) return concertrationColors.f;
+        if (qVal > 2048 && qVal <= 4096) return concertrationColors.g;
+        if (qVal > 4096 && qVal <= 8192) return concertrationColors.h;
+        if (qVal > 8192 && qVal <= 16384) return concertrationColors.i;
+        if (qVal > 16384 && qVal <= 20000000) return concertrationColors.j;
         return concertrationColors.zero;
     }
 
