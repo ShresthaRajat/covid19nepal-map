@@ -177,9 +177,10 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
 
 
 const fillColor = (qVal, rVal, dVal) => {
+        console.log(qVal, rVal, dVal);
         if (qVal === 0) return concertrationColors.zero;
-        if (qVal === rVal+dVal) return concertrationColors.green;
-        if (qVal === dVal) return concertrationColors.grey;
+//         if (qVal === rVal+dVal) return concertrationColors.green;
+//         if (qVal === dVal) return concertrationColors.grey;
         if (qVal > 0 && qVal <= 63) return concertrationColors.a;
         if (qVal > 64 && qVal <= 128) return concertrationColors.b;
         if (qVal > 128 && qVal <= 256) return concertrationColors.c;
