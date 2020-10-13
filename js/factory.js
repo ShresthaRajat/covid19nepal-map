@@ -180,7 +180,7 @@ const fillColor = (qVal, rVal, dVal) => {
         if (qVal === 0) return concertrationColors.zero;
         if (qVal === rVal+dVal) return concertrationColors.green;
         if (qVal === dVal) return concertrationColors.grey;
-        if (qVal > 0 && qVal <= 64) return concertrationColors.a;
+        if (qVal > 0 && qVal <= 63) return concertrationColors.a;
         if (qVal > 64 && qVal <= 128) return concertrationColors.b;
         if (qVal > 128 && qVal <= 256) return concertrationColors.c;
         if (qVal > 256 && qVal <= 512) return concertrationColors.d;
