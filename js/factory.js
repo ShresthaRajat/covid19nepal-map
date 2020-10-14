@@ -190,7 +190,7 @@ const fillColor = (qVal, rVal, dVal) => {
         if (qVal > 2048 && qVal <= 4096) return concertrationColors.g;
         if (qVal > 4096 && qVal <= 8192) return concertrationColors.h;
         if (qVal > 8192 && qVal <= 16384) return concertrationColors.i;
-        if (qVal > 16384 && qVal <= 20000000) return concertrationColors.j;
+        if (qVal > 16384 && qVal <= 32768) return concertrationColors.j;
         return concertrationColors.zero;
     }
 
