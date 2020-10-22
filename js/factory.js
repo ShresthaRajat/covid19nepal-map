@@ -176,21 +176,21 @@ const getConcColor = (data, displayType, regionName, maxVal) => {
     // let fillColor = 'white';
 
 
-const fillColor = (qVal, rVal, dVal) => {
+    const fillColor = (qVal, rVal, dVal) => {
         console.log(qVal, rVal, dVal);
         if (qVal === 0) return concertrationColors.zero;
 //         if (qVal === rVal+dVal) return concertrationColors.green;
 //         if (qVal === dVal) return concertrationColors.grey;
-        if (qVal > 0 && qVal <= 63) return concertrationColors.a;
-        if (qVal > 64 && qVal <= 128) return concertrationColors.b;
-        if (qVal > 128 && qVal <= 256) return concertrationColors.c;
-        if (qVal > 256 && qVal <= 512) return concertrationColors.d;
-        if (qVal > 512 && qVal <= 1024) return concertrationColors.e;
-        if (qVal > 1024 && qVal <= 2048) return concertrationColors.f;
-        if (qVal > 2048 && qVal <= 4096) return concertrationColors.g;
-        if (qVal > 4096 && qVal <= 8192) return concertrationColors.h;
-        if (qVal > 8192 && qVal <= 16384) return concertrationColors.i;
-        if (qVal > 16384 && qVal <= 32768) return concertrationColors.j;
+        if (qVal > 5**0 && qVal <= 5**1) return concertrationColors.a;
+        if (qVal > 5**1 && qVal <= 5**2) return concertrationColors.b;
+        if (qVal > 5**2 && qVal <= 5**3) return concertrationColors.c;
+        if (qVal > 5**3 && qVal <= 5**4) return concertrationColors.d;
+        if (qVal > 5**4 && qVal <= 5**5) return concertrationColors.e;
+        if (qVal > 5**5 && qVal <= 5**6) return concertrationColors.f;
+        if (qVal > 5**6 && qVal <= 5**7) return concertrationColors.g;
+        if (qVal > 5**7 && qVal <= 5**8) return concertrationColors.h;
+        if (qVal > 5**8 && qVal <= 5**9) return concertrationColors.i;
+        if (qVal > 5**9 && qVal <= 5**10) return concertrationColors.j;
         return concertrationColors.zero;
     }
 
@@ -200,9 +200,11 @@ const fillColor = (qVal, rVal, dVal) => {
         //if shown disrict wise
         const distData = data.byDistrict;
         const district = distData.find(el => el.district === regionName)
-        const q = district.cases / maxVal * 100;
-        const r = district.recovered / maxVal * 100;
-        const d = district.deaths / maxVal * 100;
+        const q = district.cases;
+        const r = district.recovered;
+        const d = district.deaths;
+        console.log(district, district.deaths, district.recovered, district.cases)
+        console.log(district, q, r, d)
         $(`.${regionName}-label`)[0].style.fill = 'black';
         return fillColor(q, r, d)
 
@@ -215,9 +217,9 @@ const fillColor = (qVal, rVal, dVal) => {
                 province = provData[prov]
             }
         }
-        const p = province.cases / maxVal * 100;
-        const r = province.recovered / maxVal * 100;
-        const d = province.deaths / maxVal * 100;
+        const p = province.cases;
+        const r = province.recovered;
+        const d = province.deaths;
         return fillColor(p, r, d)
     }
 }
